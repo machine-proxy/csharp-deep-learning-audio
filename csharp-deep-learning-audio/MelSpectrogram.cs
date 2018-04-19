@@ -33,18 +33,16 @@ namespace csharp_deep_learning_audio
 
             Console.WriteLine("number of seconds: {0} total steps: {1}, truncated steps: {2}", time, total_steps, steps);
 
-            Bitmap result = new Bitmap(steps, height);
-            Graphics g = Graphics.FromImage(result);
-
             Visuals visuals = new Visuals();
-
-
             Bass.BASS_ChannelPlay(channel, false);
-
-            for (int i = 0; i < steps; i++)
+            Bitmap result = new Bitmap(steps, height);
+            using (Graphics g = Graphics.FromImage(result))
             {
-                Bass.BASS_ChannelSetPosition(channel, 1.0 * i / stepsPerSecond);
-                visuals.CreateSpectrum3DVoicePrint(channel, g, new Rectangle(0, 0, result.Width, result.Height), Color.Black, Color.White, i, true, false);
+                for (int i = 0; i < steps; i++)
+                {
+                    Bass.BASS_ChannelSetPosition(channel, 1.0 * i / stepsPerSecond);
+                    visuals.CreateSpectrum3DVoicePrint(channel, g, new Rectangle(0, 0, result.Width, result.Height), Color.Black, Color.White, i, true, false);
+                }
             }
 
             Bass.BASS_ChannelStop(channel);
