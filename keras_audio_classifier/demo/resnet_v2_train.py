@@ -23,7 +23,7 @@ def main():
     print('loaded: ', len(audio_path_label_pairs))
 
     classifier = ResNetV2AudioClassifier()
-    batch_size = 8
+    batch_size = 4
     epochs = 100
     history = classifier.fit(audio_path_label_pairs, model_dir_path='./models', batch_size=batch_size, epochs=epochs)
 
