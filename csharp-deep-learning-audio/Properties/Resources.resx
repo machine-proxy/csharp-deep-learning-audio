@@ -118,7 +118,40 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="avcodec_58" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\avcodec-58.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="avdevice_58" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\avdevice-58.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="avfilter_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\avfilter-7.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="avformat_58" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\avformat-58.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="avutil_56" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\avutil-56.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="bass" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bass.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ffmpeg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ffmpeg.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ffplay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ffplay.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ffprobe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ffprobe.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="postproc_55" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\postproc-55.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="swresample_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\swresample-3.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="swscale_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\swscale-5.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

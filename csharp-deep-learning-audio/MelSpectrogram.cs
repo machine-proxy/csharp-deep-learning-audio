@@ -53,6 +53,41 @@ namespace csharp_deep_learning_audio
             return result;
         }
 
+        private string Convert2Mp3(string file)
+        {
+            return file;
+        }
+
+        public static void InstallBass()
+        {
+            string dll_path = GetBassDllPath();
+            if (!File.Exists(dll_path))
+            {
+                File.WriteAllBytes(dll_path, Properties.Resources.bass);
+            }
+        }
+
+        public static void InstallFFMpeg()
+        {
+            InstallBinaryFile("avcodec-58.dll", Properties.Resources.avcodec_58);
+            InstallBinaryFile("avdevice-58.dll", Properties.Resources.avdevice_58);
+            InstallBinaryFile("avfilter-7.dll", Properties.Resources.avfilter_7);
+            InstallBinaryFile("avformat-58.dll", Properties.Resources.avformat_58);
+            InstallBinaryFile("avutil-56.dll", Properties.Resources.avutil_56);
+            InstallBinaryFile("ffmpeg.exe", Properties.Resources.ffmpeg);
+            InstallBinaryFile("ffplay.exe", Properties.Resources.ffplay);
+            InstallBinaryFile("ffprobe.exe", Properties.Resources.ffprobe);
+            InstallBinaryFile("postproc-55.dll", Properties.Resources.postproc_55);
+            InstallBinaryFile("swresample-3.dll", Properties.Resources.swresample_3);
+            InstallBinaryFile("swscale-5.dll", Properties.Resources.swscale_5);
+        }
+
+        private static void InstallBinaryFile(string filename, byte[] bytes)
+        {
+            string path = Path.Combine(AssemblyDirectory, filename);
+            if (File.Exists(path)) return;
+            File.WriteAllBytes(path, bytes);
+        }
 
         public Bitmap Convert(string file)
         {
@@ -62,15 +97,24 @@ namespace csharp_deep_learning_audio
                 return null;
             }
 
-            string dll_path = GetBassDllPath();
-            if(!File.Exists(dll_path))
+            bool converted = false;
+            if (file.ToLower().EndsWith(".au"))
             {
-                File.WriteAllBytes(dll_path, Properties.Resources.bass);
+                converted = true;
+                file = Convert2Mp3(file);
             }
 
+            InstallBass();
+            InstallFFMpeg();
             
+            Bitmap result = DrawSpectrogram(file, Width, Height, 8);
 
-            return DrawSpectrogram(file, Width, Height, 8);
+            if(converted)
+            {
+                File.Delete(file);
+            }
+
+            return result;
         }
 
         public static string GetBassDllPath()

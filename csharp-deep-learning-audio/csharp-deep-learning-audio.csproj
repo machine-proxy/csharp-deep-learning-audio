@@ -64,9 +64,41 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\avcodec-58.dll" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bass.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avdevice-58.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avfilter-7.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avformat-58.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avutil-56.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ffmpeg.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ffplay.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ffprobe.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\postproc-55.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\swresample-3.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\swscale-5.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\TensorFlowSharp.1.7.0\build\net45\TensorFlowSharp.targets" Condition="Exists('..\packages\TensorFlowSharp.1.7.0\build\net45\TensorFlowSharp.targets')" />

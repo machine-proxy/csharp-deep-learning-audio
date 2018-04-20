@@ -14,9 +14,12 @@ namespace csharp_melgram_generator
         static void Main(string[] args)
         {
             MelSpectrogram gram = new MelSpectrogram();
-            Console.WriteLine(MelSpectrogram.AssemblyDirectory);
-            /*
-            string dataDirPath = @"C:\Users\chen0\git\csharp-deep-learning-audio\gtzan\genres";
+            string dataDirPath = Path.Combine(MelSpectrogram.AssemblyDirectory, "..", "..", "..", "gtzan", "genres");
+            if(!Directory.Exists(dataDirPath))
+            {
+                Console.WriteLine("{0} does not exists", dataDirPath);
+                return;
+            }
 
             string[] subDirectories = Directory.GetDirectories(dataDirPath);
             foreach (string subDirectory in subDirectories)
@@ -29,7 +32,7 @@ namespace csharp_melgram_generator
                     img.Save(file + ".png");
                 }
 
-            }*/
+            }
         }
     }
 }
