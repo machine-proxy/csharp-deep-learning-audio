@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-deep-learning-audio-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-melgram-generator", "csharp-melgram-generator\csharp-melgram-generator.csproj", "{8C80C4D8-A092-43F0-B8B2-3036B015A598}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-au-to-mp3-converter", "csharp-au-to-mp3-converter\csharp-au-to-mp3-converter.csproj", "{59A34D95-FAE3-4E01-9716-3ADCF0221CCB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{8C80C4D8-A092-43F0-B8B2-3036B015A598}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C80C4D8-A092-43F0-B8B2-3036B015A598}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C80C4D8-A092-43F0-B8B2-3036B015A598}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59A34D95-FAE3-4E01-9716-3ADCF0221CCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59A34D95-FAE3-4E01-9716-3ADCF0221CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59A34D95-FAE3-4E01-9716-3ADCF0221CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59A34D95-FAE3-4E01-9716-3ADCF0221CCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

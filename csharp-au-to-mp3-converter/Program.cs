@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using csharp_deep_learning_audio;
 
-namespace csharp_melgram_generator
+namespace csharp_au_to_mp3_converter
 {
     class Program
     {
@@ -15,7 +14,7 @@ namespace csharp_melgram_generator
         {
             MelSpectrogram gram = new MelSpectrogram();
             string dataDirPath = Path.Combine(IOUtils.AssemblyDirectory, "..", "..", "..", "gtzan", "genres");
-            if(!Directory.Exists(dataDirPath))
+            if (!Directory.Exists(dataDirPath))
             {
                 Console.WriteLine("{0} does not exists", dataDirPath);
                 return;
@@ -27,11 +26,17 @@ namespace csharp_melgram_generator
                 string[] files = Directory.GetFiles(subDirectory, "*.au");
                 foreach (string file in files)
                 {
-                    Console.WriteLine("Converting: {0}", file);
-                    Bitmap img = gram.Convert(file, 48);
-                    img.Save(file + ".png");
+                    string mp3file = "converted.mp3";
+                    Console.WriteLine("Converting {0}", file);
+                    FFMpeg.Convert2Mp3(file, mp3file);
+                    if(!File.Exists(mp3file))
+                    {
+                        Console.WriteLine("Failed to convert to {0}", mp3file);
+                    }
+                    
+                    break;
                 }
-
+                break;
             }
         }
     }

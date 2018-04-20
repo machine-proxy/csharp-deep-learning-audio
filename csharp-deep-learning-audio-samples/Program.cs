@@ -23,7 +23,7 @@ namespace csharp_deep_learning_audio_samples
                 foreach(string file in files)
                 {
                     Console.WriteLine("Converting: {0}", file);
-                    Bitmap img = gram.Convert(file);
+                    Bitmap img = gram.Convert(file, 48);
                     img.Save(file + ".png");
                 }
                 

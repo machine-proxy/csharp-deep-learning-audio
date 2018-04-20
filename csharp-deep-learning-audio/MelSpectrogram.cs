@@ -55,7 +55,9 @@ namespace csharp_deep_learning_audio
 
         private string Convert2Mp3(string file)
         {
-            return file;
+            string mp3file = file + ".mp3";
+            FFMpeg.Convert2Mp3(file, mp3file);
+            return mp3file;
         }
 
         public static void InstallBass()
@@ -67,29 +69,10 @@ namespace csharp_deep_learning_audio
             }
         }
 
-        public static void InstallFFMpeg()
-        {
-            InstallBinaryFile("avcodec-58.dll", Properties.Resources.avcodec_58);
-            InstallBinaryFile("avdevice-58.dll", Properties.Resources.avdevice_58);
-            InstallBinaryFile("avfilter-7.dll", Properties.Resources.avfilter_7);
-            InstallBinaryFile("avformat-58.dll", Properties.Resources.avformat_58);
-            InstallBinaryFile("avutil-56.dll", Properties.Resources.avutil_56);
-            InstallBinaryFile("ffmpeg.exe", Properties.Resources.ffmpeg);
-            InstallBinaryFile("ffplay.exe", Properties.Resources.ffplay);
-            InstallBinaryFile("ffprobe.exe", Properties.Resources.ffprobe);
-            InstallBinaryFile("postproc-55.dll", Properties.Resources.postproc_55);
-            InstallBinaryFile("swresample-3.dll", Properties.Resources.swresample_3);
-            InstallBinaryFile("swscale-5.dll", Properties.Resources.swscale_5);
-        }
 
-        private static void InstallBinaryFile(string filename, byte[] bytes)
-        {
-            string path = Path.Combine(AssemblyDirectory, filename);
-            if (File.Exists(path)) return;
-            File.WriteAllBytes(path, bytes);
-        }
 
-        public Bitmap Convert(string file)
+
+        public Bitmap Convert(string file, int stepsPerSecond=8)
         {
             if (!File.Exists(file))
             {
@@ -105,9 +88,9 @@ namespace csharp_deep_learning_audio
             }
 
             InstallBass();
-            InstallFFMpeg();
             
-            Bitmap result = DrawSpectrogram(file, Width, Height, 8);
+            
+            Bitmap result = DrawSpectrogram(file, Width, Height, stepsPerSecond);
 
             if(converted)
             {
@@ -119,18 +102,9 @@ namespace csharp_deep_learning_audio
 
         public static string GetBassDllPath()
         {
-            return Path.Combine(AssemblyDirectory, "bass.dll");
+            return Path.Combine(IOUtils.AssemblyDirectory, "bass.dll");
         }
 
-        public static string AssemblyDirectory
-        {
-            get
-            {
-                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
-                UriBuilder uri = new UriBuilder(codeBase);
-                string path = Uri.UnescapeDataString(uri.Path);
-                return Path.GetDirectoryName(path);
-            }
-        }
+        
     }
 }
