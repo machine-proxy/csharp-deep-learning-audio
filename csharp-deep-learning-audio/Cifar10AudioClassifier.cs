@@ -32,6 +32,14 @@ namespace csharp_deep_learning_audio
             Bitmap bitmap = melgram.Convert(audioFile, 48);
 
             TFTensor imageTensor = TensorUtils.GetImageTensor(bitmap, melgram.Width, melgram.Height);
+            /*
+            foreach(TFOperation op in graph.GetEnumerator())
+            {
+                if (op != null)
+                {
+                    Console.WriteLine(op.Name);
+                }
+            }*/
             var session = new TFSession(graph);
             var runner = session.GetRunner();
             runner.AddInput(graph["conv2d_1_input:0"][0], imageTensor);
@@ -41,6 +49,7 @@ namespace csharp_deep_learning_audio
 
             // Fetch the results from output:
             TFTensor result = output[0];
+            Console.WriteLine("shape: {0}", result.Shape);
             return 0;
         }
     }
