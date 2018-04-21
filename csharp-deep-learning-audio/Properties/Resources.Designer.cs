@@ -123,6 +123,16 @@ namespace csharp_deep_learning_audio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] cifar10 {
+            get {
+                object obj = ResourceManager.GetObject("cifar10", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] ffmpeg {
             get {
                 object obj = ResourceManager.GetObject("ffmpeg", resourceCulture);
@@ -156,6 +166,16 @@ namespace csharp_deep_learning_audio.Properties {
         internal static byte[] postproc_55 {
             get {
                 object obj = ResourceManager.GetObject("postproc_55", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] resnet_v2 {
+            get {
+                object obj = ResourceManager.GetObject("resnet_v2", resourceCulture);
                 return ((byte[])(obj));
             }
         }

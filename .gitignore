@@ -3,3 +3,6 @@ packages/
 
 *.user
 *.suo
+
+System.ValueTuple.4.4.0/
+TensorFlowSharp.1.7.0/
