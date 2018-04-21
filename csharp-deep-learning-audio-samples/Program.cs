@@ -13,7 +13,7 @@ namespace csharp_deep_learning_audio_samples
     {
         static void Main(string[] args)
         {
-            MelSpectrogram gram = new MelSpectrogram();
+            Cifar10AudioClassifier c = new Cifar10AudioClassifier();
             string dataDirPath = @"C:\Users\chen0\git\csharp-deep-learning-audio\gtzan\genres";
 
             string[] subDirectories = Directory.GetDirectories(dataDirPath);
@@ -22,9 +22,8 @@ namespace csharp_deep_learning_audio_samples
                 string[] files = Directory.GetFiles(subDirectory, "*.au");
                 foreach(string file in files)
                 {
-                    Console.WriteLine("Converting: {0}", file);
-                    Bitmap img = gram.Convert(file, 48);
-                    img.Save(file + ".png");
+                    Console.WriteLine("classifing: {0}", file);
+                    c.PredictClass(file);
                 }
                 
             }
