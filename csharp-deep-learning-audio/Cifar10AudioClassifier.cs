@@ -42,8 +42,8 @@ namespace csharp_deep_learning_audio
             }*/
             var session = new TFSession(graph);
             var runner = session.GetRunner();
-            runner.AddInput(graph["conv2d_1_input:0"][0], imageTensor);
-            runner.Fetch(graph["output_node0:0"][0]);
+            runner.AddInput(graph["conv2d_1_input"][0], imageTensor);
+            runner.Fetch(graph["output_node0"][0]);
 
             var output = runner.Run();
 

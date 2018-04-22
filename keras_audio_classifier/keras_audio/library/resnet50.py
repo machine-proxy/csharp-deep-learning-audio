@@ -324,7 +324,7 @@ class ResNet50AudioClassifier(object):
         if random_state is None:
             random_state = 42
         if input_shape is None:
-            input_shape = (96, 1366, 1)
+            input_shape = (96, 1366, 3)
         if nb_classes is None:
             nb_classes = 10
 
