@@ -30,6 +30,8 @@ namespace csharp_deep_learning_audio
                     float green = pixel.G;
                     float blue = pixel.B;
                     fb[index++]=red;
+                    fb[index++] = green;
+                    fb[index++] = blue;
                 }
             }
             

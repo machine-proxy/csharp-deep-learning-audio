@@ -70,13 +70,14 @@ namespace csharp_deep_learning_audio
 
 
             bool jagged = true;
-            var bestIdx = 0;
-            float p = 0, best = 0;
+            var bestIdx = -1;
+            float p = 0, best = float.MinValue;
             if (jagged)
             {
                 var probabilities = ((float[][])result.GetValue(jagged: true))[0];
                 for (int i = 0; i < probabilities.Length; i++)
                 {
+                    Console.WriteLine("i: {0}, p: {1}", i, probabilities[i]);
                     if (probabilities[i] > best)
                     {
                         bestIdx = i;

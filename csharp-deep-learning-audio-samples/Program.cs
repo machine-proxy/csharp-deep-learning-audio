@@ -24,6 +24,7 @@ namespace csharp_deep_learning_audio_samples
                 {
                     Console.WriteLine("classifing: {0}", file);
                     Console.WriteLine("predicted: {0}", c.PredictLabel(file));
+                    break;
                 }
                 
             }
