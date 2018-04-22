@@ -23,7 +23,7 @@ namespace csharp_deep_learning_audio_samples
                 foreach(string file in files)
                 {
                     Console.WriteLine("classifing: {0}", file);
-                    c.PredictClass(file);
+                    Console.WriteLine("predicted: {0}", c.PredictLabel(file));
                 }
                 
             }

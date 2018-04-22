@@ -27,6 +27,11 @@ namespace csharp_deep_learning_audio
             }
         }
 
+        public string PredictLabel(string audioFile)
+        {
+            return Genres.GetLabel(PredictClass(audioFile));
+        }
+
         public int PredictClass(string audioFile)
         {
             Bitmap bitmap = melgram.Convert(audioFile, 48);
@@ -49,8 +54,51 @@ namespace csharp_deep_learning_audio
 
             // Fetch the results from output:
             TFTensor result = output[0];
-            Console.WriteLine("shape: {0}", result.Shape);
-            return 0;
+
+            var rshape = result.Shape;
+            if (result.NumDims != 2 || rshape[0] != 1)
+            {
+                var shape = "";
+                foreach (var d in rshape)
+                {
+                    shape += $"{d} ";
+                }
+                shape = shape.Trim();
+                Console.WriteLine($"Error: expected to produce a [1 N] shaped tensor where N is the number of labels, instead it produced one with shape [{shape}]");
+                Environment.Exit(1);
+            }
+
+
+            bool jagged = true;
+            var bestIdx = 0;
+            float p = 0, best = 0;
+            if (jagged)
+            {
+                var probabilities = ((float[][])result.GetValue(jagged: true))[0];
+                for (int i = 0; i < probabilities.Length; i++)
+                {
+                    if (probabilities[i] > best)
+                    {
+                        bestIdx = i;
+                        best = probabilities[i];
+                    }
+                }
+            }
+            else
+            {
+                var val = (float[,])result.GetValue(jagged: false);
+                for (int i = 0; i < val.GetLength(1); i++)
+                {
+                    if (val[0, i] > best)
+                    {
+                        bestIdx = i;
+                        best = val[0, i];
+                    }
+                }
+            }
+
+
+            return bestIdx;
         }
     }
 }

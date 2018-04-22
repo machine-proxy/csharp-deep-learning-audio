@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="Cifar10AudioClassifier.cs" />
     <Compile Include="FFMpeg.cs" />
+    <Compile Include="Genres.cs" />
     <Compile Include="IOUtils.cs" />
     <Compile Include="MelSpectrogram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
