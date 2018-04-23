@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>TensorFlow-Deep-Music</id>
+    <version>1.0.1</version>
+    <authors>chen0040</authors>
+    <owners>chen0040</owners>
+    <licenseUrl>https://github.com/machine-proxy/csharp-deep-learning-audio/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/machine-proxy/csharp-deep-learning-audio</projectUrl>
+    <iconUrl>https://rawgit.com/chen0040/cs-pdf-to-image/master/icon.jpg</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>TensorFlow Music</description>
+    <releaseNotes>Music classifier, music search engine, and music recommendation built using TensorFlowSharp for .NET 4.6.1 x64 platform</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>music-classifier, music-search, music-recommendation, ffmpeg, mp3, audio-converter</tags>
+	<title>TensorFlow Deep Music</title>
+	<summary>Music classifier, music search engine, and music recommendation built using TensorFlowSharp for .NET 4.6.1 x64 platform</summary>
+    <dependencies>
+      
+    </dependencies>
+  </metadata>
+</package>

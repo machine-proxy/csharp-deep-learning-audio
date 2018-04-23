@@ -90,7 +90,7 @@ class ResNetV2AudioClassifier(object):
 
     def melgram(self, audio_path):
         img_path = audio_path + '.png'
-        img = img_to_array(load_img(img_path))
+        img = img_to_array(load_img(img_path, grayscale=True))
         return img
 
     def compute_melgram(self, audio_path):
@@ -117,20 +117,8 @@ class ResNetV2AudioClassifier(object):
                     X[i - start, :, :, :] = mg
                 yield X, labels[start:end]
 
-    def fit(self, audio_path_label_pairs, model_dir_path, batch_size=None, epochs=None, test_size=None,
-            random_state=None, input_shape=None, nb_classes=None):
-        if batch_size is None:
-            batch_size = 64
-        if epochs is None:
-            epochs = 20
-        if test_size is None:
-            test_size = 0.2
-        if random_state is None:
-            random_state = 42
-        if input_shape is None:
-            input_shape = (96, 1366, 3)
-        if nb_classes is None:
-            nb_classes = 10
+    def fit(self, audio_path_label_pairs, model_dir_path, batch_size=64, epochs=20, test_size=0.2,
+            random_state=42, input_shape=(96, 1366, 1), nb_classes=10):
 
         config_file_path = self.get_config_file_path(model_dir_path)
         weight_file_path = self.get_weight_file_path(model_dir_path)

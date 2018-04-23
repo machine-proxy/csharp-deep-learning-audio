@@ -128,7 +128,6 @@
     <None Include="Resources\postproc-55.dll" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\resnet-v2.pb" />
     <None Include="Resources\swresample-3.dll" />
   </ItemGroup>
   <ItemGroup>
