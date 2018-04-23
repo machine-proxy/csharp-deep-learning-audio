@@ -54,6 +54,14 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bass.Net, Version=2.4.10.3, Culture=neutral, PublicKeyToken=b7566c273e6ef480, processorArchitecture=MSIL">
+      <HintPath>..\packages\TensorFlow-Deep-Music.1.0.1\lib\net461\Debug\Bass.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="csharp-deep-learning-audio, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\TensorFlow-Deep-Music.1.0.1\lib\net461\Debug\csharp-deep-learning-audio.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -70,12 +78,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\csharp-deep-learning-audio\csharp-deep-learning-audio.csproj">
-      <Project>{463d7468-8b0d-49b7-9581-8a3e994066ea}</Project>
-      <Name>csharp-deep-learning-audio</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

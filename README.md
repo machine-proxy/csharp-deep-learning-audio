@@ -13,6 +13,12 @@ The packages runs in x64 and built with .NET 4.6.1. Therefore you need to
 
 # Install
 
+Make sure that you have the following installed:
+
+* TensorFlowSharp Version 1.7.0 (used to run the tensorflow audio classifier trained models)
+
+Run the following command in your nuget manager console:
+
 ```bash
 Install-Package TensorFlow-Deep-Music -Version 1.0.1
 ```
@@ -20,7 +26,6 @@ Install-Package TensorFlow-Deep-Music -Version 1.0.1
 The following dlls are also installed when installing the TensorFlow-Deep-Music:
 
 * Bass.NET Version 1.0.0 (used to convert audio file to melgram)
-* TensorFlowSharp Version 1.7.0 (used to run the tensorflow audio classifier trained models)
 * System.ValueTuple Version 4.4.0 (required by TensorFlowSharp)
 
 # Usage
