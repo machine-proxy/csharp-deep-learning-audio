@@ -11,8 +11,6 @@ The packages runs in x64 and built with .NET 4.6.1. Therefore you need to
 * Set the .NET configuration manager to x64 in Visual Studio IDE
 
 
-
-
 # Install
 
 ```bash
@@ -28,7 +26,39 @@ The following dlls are also installed when installing the TensorFlow-Deep-Music:
 # Usage
 
 Below is the [code](csharp-deep-learning-audio-samples/Program.cs) showing how to use [Cifar10AudioClassifier](csharp-deep-learning-audio/Cifar10AudioClassifier.cs)
-or [ResNetV2AudioClassifier](csharp-deep-learning-audio/ResNetV2AudioClassifier.cs) to predict the genres of an audio file:
+ to predict the genres of an audio file:
+
+```cs
+using System;
+using csharp_deep_learning_audio;
+using System.IO;
+
+namespace csharp_deep_learning_audio_samples
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Cifar10AudioClassifier c = new Cifar10AudioClassifier();
+            string dataDirPath = @"C:\Users\chen0\git\csharp-deep-learning-audio\gtzan\genres";
+
+            string[] subDirectories = Directory.GetDirectories(dataDirPath);
+            foreach(string subDirectory in subDirectories)
+            {
+                string[] files = Directory.GetFiles(subDirectory, "*.au");
+                foreach(string file in files)
+                {
+                    Console.WriteLine("classifing: {0}", file);
+                    Console.WriteLine("predicted: {0}", c.PredictLabel(file));
+                    break;
+                }
+                
+            }
+        }
+    }
+}
+
+```
 
 
 
