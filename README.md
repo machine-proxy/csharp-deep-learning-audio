@@ -20,7 +20,7 @@ Make sure that you have the following installed:
 Run the following command in your nuget manager console:
 
 ```bash
-Install-Package TensorFlow-Deep-Music -Version 1.0.1
+Install-Package TensorFlow-Deep-Music -Version 1.0.2
 ```
 
 The following dlls are also installed when installing the TensorFlow-Deep-Music:
