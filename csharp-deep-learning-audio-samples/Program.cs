@@ -7,8 +7,8 @@ namespace csharp_deep_learning_audio_samples
     {
         static void Main(string[] args)
         {
-
-            SearchEngineDemo.Demo();
+            ClassifierDemo.Demo();
+            //SearchEngineDemo.Demo();
         }
     }
 }
