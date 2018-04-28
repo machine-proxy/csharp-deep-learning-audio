@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>TensorFlow-Deep-Music</id>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <authors>chen0040</authors>
     <owners>chen0040</owners>
     <licenseUrl>https://github.com/machine-proxy/csharp-deep-learning-audio/blob/master/LICENSE</licenseUrl>

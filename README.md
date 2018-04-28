@@ -20,7 +20,7 @@ Make sure that you have the following installed:
 Run the following command in your nuget manager console:
 
 ```bash
-Install-Package TensorFlow-Deep-Music -Version 1.0.2
+Install-Package TensorFlow-Deep-Music -Version 1.0.3
 ```
 
 The following dlls are also installed when installing the TensorFlow-Deep-Music:
@@ -30,7 +30,9 @@ The following dlls are also installed when installing the TensorFlow-Deep-Music:
 
 # Usage
 
-Below is the [code](csharp-deep-learning-audio-samples/Program.cs) showing how to use [Cifar10AudioClassifier](csharp-deep-learning-audio/Cifar10AudioClassifier.cs)
+### Audio Encoder and Audio Classifier
+
+Below is the [code](csharp-deep-learning-audio-samples/ClassifierDemo.cs) showing how to use [AudioClassifier](csharp-deep-learning-audio/AudioClassifier.cs)
  to predict the genres of an audio file:
 
 ```cs
@@ -44,7 +46,7 @@ namespace csharp_deep_learning_audio_samples
     {
         static void Main(string[] args)
         {
-            Cifar10AudioClassifier c = new Cifar10AudioClassifier();
+            AudioClassifier c = new AudioClassifier();
             string dataDirPath = @"C:\Users\chen0\git\csharp-deep-learning-audio\gtzan\genres";
 
             string[] subDirectories = Directory.GetDirectories(dataDirPath);
@@ -63,6 +65,54 @@ namespace csharp_deep_learning_audio_samples
     }
 }
 
+```
+
+### Audio Search Engine 
+
+Below is the [code](csharp-deep-learning-audio-samples/SearchEngineDemo.cs) showing how to index music files and perform query to find similar songs:
+
+```cs 
+using System;
+using csharp_deep_learning_audio;
+using System.IO;
+using System.Collections.Generic;
+
+namespace csharp_deep_learning_audio_samples
+{
+    class SearchEngineDemo
+    {
+        public static void Demo()
+        {
+            
+            AudioSearchEngine c = new AudioSearchEngine();
+            string dataDirPath = Path.Combine(IOUtils.AssemblyDirectory, "..", "..", "..", "..", "gtzan", "genres");
+
+            string[] subDirectories = Directory.GetDirectories(dataDirPath);
+            foreach(string subDirectory in subDirectories)
+            {
+                string[] files = Directory.GetFiles(subDirectory, "*.au");
+                foreach(string file in files)
+                {
+                    c.IndexAudio(file);
+                }
+            }
+
+            int topK = 10;
+            List<ComparableAudioEntry> result = c.Query(
+                Path.Combine(IOUtils.AssemblyDirectory, "..", "..", "..", "..", "music-samples", "example.mp3"),
+                topK);
+
+            for(int i=0; i < result.Count; ++i)
+            {
+                Console.WriteLine("#{0} (Score: {1}): {2}", i + 1, result[i].Distance, result[i].AudioFile);
+            }
+
+
+
+
+        }
+    }
+}
 ```
 
 
